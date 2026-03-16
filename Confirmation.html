@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirmation de Paiement - Mustafaa Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .confirmation-actions {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .confirmation-actions button {
+      background: #003366;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .confirmation-actions button:hover {
+      background: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mustafaa Shop</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="shop.html">Boutique</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Merci pour votre achat ! 🎉</h2>
+    <p>Voici le reçu de votre commande :</p>
+    <ul id="receipt"></ul>
+    <p id="total">Total : 0 FCFA</p>
+
+    <div class="confirmation-actions">
+      <button onclick="window.location.href='shop.html'">Retour à la boutique</button>
+      <button onclick="window.print()">Imprimer le reçu</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact : <a href="tel:+221785257421">+221 78 525 74 21</a> |
+      <a href="https://wa.me/221785257421" target="_blank">WhatsApp</a> |
+      Adresse : Keur Massar, Darou Misset</p>
+  </footer>
+
+  <script src="confirmation.js"></script>
+</body>
+</html>

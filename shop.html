@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boutique - Mustafaa Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mustafaa Shop</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="shop.html">Boutique</a>
+      <a href="cart.html">Panier</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Boutique</h2>
+    
+    <div class="tabs-container">
+      <button class="tab-button active" onclick="filterCategory('clubs')">⚽ Clubs</button>
+      <button class="tab-button" onclick="filterCategory('internationals')">🌍 Sélections Nationales</button>
+    </div>
+
+    <div class="products" id="clubs">
+      <div class="product">
+        <img src="images/barca1.jpg" alt="barca1" />
+        <h3>Maillot Barça</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Barça', 6000, 'images/barca1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/barca2.jpg" alt="barca2" />
+        <h3>Maillot Barça</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Barça', 6000, 'images/barca2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/real.jpg" alt="Real Madrid" />
+        <h3>Maillot Real Madrid</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Real Madrid', 6000, 'images/real.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/atletico1.jpg" alt="atletico1" />
+        <h3>Maillot Atletico Madrid</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Atletico Madrid', 6000, 'images/atletico1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/bayern2.jpg" alt="bayern2" />
+        <h3>Maillot Bayern de Munich</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Bayern de Munich', 6000, 'images/bayern2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/dortmund1.jpg" alt="dortmund1" />
+        <h3>Maillot Dortmund</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Dortmund', 6000, 'images/dortmund1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/united1.jpg" alt="united1" />
+        <h3>Maillot Manchester United</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Manchester United', 6000, 'images/united1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/city1.jpeg" alt="city1" />
+        <h3>Maillot Manchester City</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Manchester City', 6000, 'images/city1.jpeg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/arsenal1.jpg" alt="arsenal1" />
+        <h3>Maillot Arsenal</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Arsenal', 6000, 'images/arsenal1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/chelsea1.jpg" alt="chelsea1" />
+        <h3>Maillot Chelsea</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Chelsea', 6000, 'images/chelsea1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/juve2.jpg" alt="juve2" />
+        <h3>Maillot Juventus</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Juventus', 6000, 'images/juve2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/milan1.jpg" alt="milan1" />
+        <h3>Maillot Milan Ac</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Milan Ac', 6000, 'images/milan1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/miami1.jpg" alt="miami1" />
+        <h3>Maillot Inter Miami</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Inter Miami', 6000, 'images/miami1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/marseille1.jpg" alt="marseille1" />
+        <h3>Maillot Marseille</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Marseille', 6000, 'images/marseille1.jpg')">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <div class="products" id="internationals" style="display: none;">
+      <div class="product">
+        <img src="images/japon1.jpg" alt="japon1" />
+        <h3>Maillot Japon</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Japon', 6000, 'images/japon1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/japon2.jpg" alt="japon2" />
+        <h3>Maillot Japon</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Japon', 6000, 'images/japon2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/japon3.jpg" alt="japon3" />
+        <h3>Maillot Japon</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Japon', 6000, 'images/japon3.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/algerie.jpg" alt="algerie" />
+        <h3>Maillot Algérie</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Algérie', 7000, 'images/algerie.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/allemagne.jpg" alt="allemagne" />
+        <h3>Maillot Allemagne</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Allemagne', 7000, 'images/allemagne.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/argentine.jpg" alt="argentine" />
+        <h3>Maillot Argentine</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Argentine', 7000, 'images/argentine.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/colombie.jpg" alt="colombie" />
+        <h3>Maillot Colombie</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Colombie', 7000, 'images/colombie.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/ecosse.jpg" alt="ecosse" />
+        <h3>Maillot Écosse</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Écosse', 7000, 'images/ecosse.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/espagne.jpg" alt="espagne" />
+        <h3>Maillot Espagne</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Espagne', 7000, 'images/espagne.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/italie.jpg" alt="italie" />
+        <h3>Maillot Italie</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Italie', 7000, 'images/italie.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/mexique.jpg" alt="mexique" />
+        <h3>Maillot Mexique</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Mexique', 7000, 'images/mexique.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="images/ukraine.jpg" alt="ukraine" />
+        <h3>Maillot Ukraine</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Ukraine', 7000, 'images/ukraine.jpg')">Ajouter au panier</button>
+      </div>
+    </div>
+ <div class="collection-card">
+            <div class="card-icon"></div>
+            <h3>Flocage disponible</h3>
+        
+          </div>
+  </main>
+
+  <footer>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

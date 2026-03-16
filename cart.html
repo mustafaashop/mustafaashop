@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panier - Mustafaa Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mustafaa Shop</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="shop.html">Boutique</a>
+      <a href="cart.html">Panier</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>🛒 Votre Panier</h2>
+      <div id="cart-empty" class="cart-empty">
+        <p>Votre panier est vide. <a href="shop.html">Découvrez nos maillots !</a></p>
+      </div>
+      <ul id="cart-items"></ul>
+      <div class="cart-total">
+        <p id="total">Total : 0 FCFA</p>
+      </div>
+      <div class="cart-actions">
+        <a href="shop.html" class="continue-shopping">Continuer les achats</a>
+        <a href="https://pay.wave.com/m/M_sn_fN7W0RiQbIXt/c/sn/" target="_blank" class="pay-button">💳 Payer avec Wave</a>
+      </div>
+    </div>
+  </main>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
