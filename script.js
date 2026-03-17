@@ -21,30 +21,39 @@ function filterCategory(category, event) {
   }
 }
 
-// Fonction pour afficher une notification non bloquante
+// Notification stylisée (barre en haut)
 function showNotification(message) {
   const notif = document.createElement('div');
   notif.textContent = message;
   notif.style.position = 'fixed';
-  notif.style.bottom = '20px';
-  notif.style.right = '20px';
+  notif.style.top = '-50px'; // commence hors écran
+  notif.style.left = '50%';
+  notif.style.transform = 'translateX(-50%)';
   notif.style.background = '#28a745';
   notif.style.color = '#fff';
-  notif.style.padding = '10px 15px';
+  notif.style.padding = '12px 20px';
   notif.style.borderRadius = '5px';
   notif.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
   notif.style.zIndex = '9999';
+  notif.style.transition = 'top 0.5s ease';
   document.body.appendChild(notif);
 
+  // Animation d’entrée
   setTimeout(() => {
-    notif.remove();
-  }, 2000); // disparaît après 2 secondes
+    notif.style.top = '20px';
+  }, 100);
+
+  // Disparition après 2,5 secondes
+  setTimeout(() => {
+    notif.style.top = '-50px';
+    setTimeout(() => notif.remove(), 500);
+  }, 2500);
 }
 
 // Ajouter un produit au panier
 function addToCart(product, price, image) {
   cart.push({ product, price, image });
-  showNotification(`${product} ajouté au panier.`); // notification au lieu de alert
+  showNotification(`${product} ajouté au panier ✅`);
   saveCart();
   displayCart();
 }
