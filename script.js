@@ -1,35 +1,52 @@
 let cart = [];
 
 // Fonction pour filtrer les catégories
-function filterCategory(category) {
+function filterCategory(category, event) {
   const clubsSection = document.getElementById('clubs');
   const internationalsSection = document.getElementById('internationals');
   const tabButtons = document.querySelectorAll('.tab-button');
 
-  // Masquer toutes les sections
   clubsSection.style.display = 'none';
   internationalsSection.style.display = 'none';
-
-  // Désactiver tous les boutons
   tabButtons.forEach(btn => btn.classList.remove('active'));
 
-  // Afficher la section sélectionnée
   if (category === 'clubs') {
     clubsSection.style.display = 'flex';
   } else if (category === 'internationals') {
     internationalsSection.style.display = 'flex';
   }
 
-  // Activer le bouton correspondant
-  event.target.classList.add('active');
+  if (event) {
+    event.target.classList.add('active');
+  }
 }
 
-// Fonction pour ajouter un produit au panier
+// Fonction pour afficher une notification non bloquante
+function showNotification(message) {
+  const notif = document.createElement('div');
+  notif.textContent = message;
+  notif.style.position = 'fixed';
+  notif.style.bottom = '20px';
+  notif.style.right = '20px';
+  notif.style.background = '#28a745';
+  notif.style.color = '#fff';
+  notif.style.padding = '10px 15px';
+  notif.style.borderRadius = '5px';
+  notif.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+  notif.style.zIndex = '9999';
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.remove();
+  }, 2000); // disparaît après 2 secondes
+}
+
+// Ajouter un produit au panier
 function addToCart(product, price, image) {
   cart.push({ product, price, image });
-  alert(`${product} ajouté au panier.`);
+  showNotification(`${product} ajouté au panier.`); // notification au lieu de alert
   saveCart();
-  displayCart(); // mise à jour immédiate du panier
+  displayCart();
 }
 
 function saveCart() {
@@ -43,7 +60,6 @@ function loadCart() {
   }
 }
 
-// Fonction pour supprimer un article du panier
 function removeFromCart(index) {
   cart.splice(index, 1);
   saveCart();
@@ -51,10 +67,10 @@ function removeFromCart(index) {
 }
 
 function displayCart() {
-  loadCart();
   const cartItems = document.getElementById('cart-items');
   const totalElement = document.getElementById('total');
   const emptyDiv = document.getElementById('cart-empty');
+  const cartCount = document.getElementById('cart-count');
   let total = 0;
 
   cartItems.innerHTML = '';
@@ -71,7 +87,6 @@ function displayCart() {
       ${item.product} - ${item.price} FCFA
     `;
 
-    // Ajout du bouton "Supprimer"
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Supprimer';
     removeBtn.className = 'remove-btn';
@@ -86,14 +101,21 @@ function displayCart() {
 
   totalElement.textContent = `Total : ${total} FCFA`;
 
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+    cartCount.style.display = cart.length > 0 ? 'inline-block' : 'none';
+  }
+
   const payButton = document.querySelector('.pay-button');
   if (payButton) {
-    payButton.href = `https://pay.wave.com/m/M_sn_fN7W0RiQbIXt/c/sn/?amount=${total}&success_url=${encodeURIComponent(window.location.origin + '/Confirmation.html')}&failure_url=${encodeURIComponent(window.location.origin + '/cart.html')}`;
+    if (total > 0) {
+      payButton.href = `https://pay.wave.com/m/M_sn_fN7W0RiQbIXt/c/sn/?amount=${total}&success_url=${encodeURIComponent(window.location.origin + '/Confirmation.html')}&failure_url=${encodeURIComponent(window.location.origin + '/cart.html')}`;
+      payButton.classList.remove('disabled');
+    } else {
+      payButton.removeAttribute('href');
+      payButton.classList.add('disabled');
+    }
   }
-}
-
-if (document.getElementById('cart-items')) {
-  displayCart();
 }
 
 function clearCart() {
@@ -103,16 +125,21 @@ function clearCart() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  loadCart();
+  if (document.getElementById('cart-items')) {
+    displayCart();
+  }
+
   const receipt = document.getElementById('receipt');
   const totalElement = document.getElementById('total');
   const storedCart = localStorage.getItem('cart');
   let total = 0;
 
-  if (storedCart) {
-    const cart = JSON.parse(storedCart);
-
+  if (receipt && storedCart) {
+    const parsedCart = JSON.parse(storedCart);
     const grouped = {};
-    cart.forEach(item => {
+
+    parsedCart.forEach(item => {
       const key = item.product + '|' + item.image;
       if (grouped[key]) {
         grouped[key].quantity += 1;
@@ -138,15 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     totalElement.textContent = `Total : ${total.toLocaleString()} FCFA`;
-    localStorage.removeItem('cart');
-  } else {
+  } else if (receipt) {
     receipt.innerHTML = '<li>Votre panier était vide.</li>';
   }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('request-form');
-
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
