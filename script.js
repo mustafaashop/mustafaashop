@@ -81,7 +81,11 @@ function displayCart() {
   const emptyDiv = document.getElementById('cart-empty');
   const cartCount = document.getElementById('cart-count');
   let total = 0;
-
+    // Mise à jour du compteur en bas
+  const cartBottomCount = document.getElementById('cart-bottom-count');
+  if (cartBottomCount) {
+    cartBottomCount.textContent = cart.length;
+  
   cartItems.innerHTML = '';
   if (cart.length === 0) {
     emptyDiv.style.display = 'block';
