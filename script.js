@@ -24,10 +24,12 @@ function filterCategory(category) {
   event.target.classList.add('active');
 }
 
+// Fonction pour ajouter un produit au panier
 function addToCart(product, price, image) {
   cart.push({ product, price, image });
   alert(`${product} ajouté au panier.`);
   saveCart();
+  displayCart(); // mise à jour immédiate du panier
 }
 
 function saveCart() {
@@ -61,9 +63,13 @@ function displayCart() {
   } else {
     emptyDiv.style.display = 'none';
   }
+
   cart.forEach((item, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="${item.image}" alt="${item.product}" style="width: 50px; height: auto; margin-right: 10px;"> ${item.product} - ${item.price} FCFA `;
+    li.innerHTML = `
+      <img src="${item.image}" alt="${item.product}" style="width: 50px; height: auto; margin-right: 10px;">
+      ${item.product} - ${item.price} FCFA
+    `;
 
     // Ajout du bouton "Supprimer"
     const removeBtn = document.createElement('button');
@@ -89,6 +95,7 @@ function displayCart() {
 if (document.getElementById('cart-items')) {
   displayCart();
 }
+
 function clearCart() {
   cart = [];
   saveCart();
@@ -122,7 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const [key, data] of Object.entries(grouped)) {
       const li = document.createElement('li');
       const subtotal = data.price * data.quantity;
-      li.innerHTML = `<img src="${data.image}" alt="${data.product}" style="width: 50px; height: auto; margin-right: 10px;"> ${data.product} x${data.quantity} — ${subtotal.toLocaleString()} FCFA`;
+      li.innerHTML = `
+        <img src="${data.image}" alt="${data.product}" style="width: 50px; height: auto; margin-right: 10px;">
+        ${data.product} x${data.quantity} — ${subtotal.toLocaleString()} FCFA
+      `;
       receipt.appendChild(li);
       total += subtotal;
     }
@@ -136,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('request-form');
-
 
   if (form) {
     form.addEventListener('submit', function (e) {
