@@ -770,7 +770,7 @@ button:hover, .pay-button:hover {
 }
 .cart-bottom-button {
   display: inline-block;
-  background-color: #28a745; /* vert */
+  background-color: #28a745;
   color: white;
   padding: 12px 20px;
   font-size: 16px;
@@ -782,5 +782,5 @@ button:hover, .pay-button:hover {
 }
 
 .cart-bottom-button:hover {
-  background-color: #218838; /* vert plus foncé au survol */
+  background-color: #218838;
 }
