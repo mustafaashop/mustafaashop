@@ -21,23 +21,27 @@ function updateCartCount() {
 }
 
 // Filtrer catégories
-function filterCategory(category, event) {
+function filterCategory(category, btn) {
   const clubsSection = document.getElementById('clubs');
   const internationalsSection = document.getElementById('internationals');
   const tabButtons = document.querySelectorAll('.tab-button');
 
+  // Masquer toutes les sections
   clubsSection.style.display = 'none';
   internationalsSection.style.display = 'none';
 
-  tabButtons.forEach(btn => btn.classList.remove('active'));
+  // Retirer la classe active de tous les boutons
+  tabButtons.forEach(button => button.classList.remove('active'));
 
+  // Afficher la section sélectionnée
   if (category === 'clubs') {
     clubsSection.style.display = 'flex';
-  } else {
+  } else if (category === 'internationals') {
     internationalsSection.style.display = 'flex';
   }
 
-  if(event) event.target.classList.add('active');
+  // Ajouter la classe active au bouton cliqué
+  btn.classList.add('active');
 }
 
 // Ajouter produit avec taille
