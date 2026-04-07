@@ -21,17 +21,21 @@ function updateCartCount() {
 }
 
 // Filtrer catégories
-function filterCategory(category) {
+function filterCategory(event, category) {
   const clubsSection = document.getElementById('clubs');
   const internationalsSection = document.getElementById('internationals');
   const tabButtons = document.querySelectorAll('.tab-button');
 
   clubsSection.style.display = 'none';
   internationalsSection.style.display = 'none';
+
   tabButtons.forEach(btn => btn.classList.remove('active'));
 
-  if (category === 'clubs') clubsSection.style.display = 'flex';
-  else internationalsSection.style.display = 'flex';
+  if (category === 'clubs') {
+    clubsSection.style.display = 'flex';
+  } else if (category === 'internationals') {
+    internationalsSection.style.display = 'flex';
+  }
 
   event.target.classList.add('active');
 }
