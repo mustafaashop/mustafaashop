@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,327 +10,221 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-  <h1>Mustafaa Shop</h1>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="shop.html">Boutique</a>
-    <a href="cart.html">Panier (<span id="cart-count">0</span>)</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <header>
+    <h1>Mustafaa Shop</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="shop.html">Boutique</a>
+      <a href="cart.html">Panier (<span id="cart-count">0</span>)</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<main>
-  <h2>Boutique</h2>
-  <div class="tabs-container">
- <div class="tabs-container">
-  <button class="tab-button active" onclick="filterCategory('clubs', this)">⚽ Clubs</button>
-  <button class="tab-button" onclick="filterCategory('internationals', this)">🌍 Sélections Nationales</button>
-</div>
-  <!-- CLUBS -->
-  <div class="products" id="clubs" style="display:flex;">
-  <!-- Tous les maillots de clubs ici -->
-</div>
-    <!-- Barça -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/barca1.jpg" alt="Maillot Barça">
-      <h3>Maillot Barça</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Barça',6000,'https://mustafaashop.github.io/mustafaashop/barca1.jpg')">Ajouter au panier</button>
-    </div>
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/barca2.jpg" alt="Maillot Barça">
-      <h3>Maillot Barça</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Barça',6000,'https://mustafaashop.github.io/mustafaashop/barca2.jpg')">Ajouter au panier</button>
+  <main>
+    <h2>Boutique</h2>
+    
+    <div class="tabs-container">
+      <button class="tab-button active" onclick="filterCategory('clubs')">⚽ Clubs</button>
+      <button class="tab-button" onclick="filterCategory('internationals')">🌍 Sélections Nationales</button>
     </div>
 
-    <!-- Real Madrid -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/real.jpg" alt="Maillot Real Madrid">
-      <h3>Maillot Real Madrid</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Real Madrid',6000,'https://mustafaashop.github.io/mustafaashop/real.jpg')">Ajouter au panier</button>
+    <div class="products" id="clubs">
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/barca1.jpg" alt="barca1" />
+        <h3>Maillot Barça</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Barça', 6000, 'https://mustafaashop.github.io/mustafaashop/barca1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/barca2.jpg" alt="barca2" />
+        <h3>Maillot Barça</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Barça', 6000, 'https://mustafaashop.github.io/mustafaashop/barca2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/real.jpg" alt="Real Madrid" />
+        <h3>Maillot Real Madrid</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Real Madrid', 6000, 'https://mustafaashop.github.io/mustafaashop/real.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/atletico1.jpg" alt="atletico1" />
+        <h3>Maillot Atletico Madrid</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Atletico Madrid', 6000, 'https://mustafaashop.github.io/mustafaashop/atletico1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/bayern2.jpg" alt="bayern2" />
+        <h3>Maillot Bayern de Munich</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Bayern de Munich', 6000, 'https://mustafaashop.github.io/mustafaashop/bayern2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/dortmund1.jpg" alt="dortmund1" />
+        <h3>Maillot Dortmund</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Dortmund', 6000, 'https://mustafaashop.github.io/mustafaashop/dortmund1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/united1.jpg" alt="united1" />
+        <h3>Maillot Manchester United</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Manchester United', 6000, 'https://mustafaashop.github.io/mustafaashop/united1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/city1.jpeg" alt="city1" />
+        <h3>Maillot Manchester City</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Manchester City', 6000, 'https://mustafaashop.github.io/mustafaashop/city1.jpeg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/arsenal1.jpg" alt="arsenal1" />
+        <h3>Maillot Arsenal</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Arsenal', 6000, 'https://mustafaashop.github.io/mustafaashop/arsenal1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/chelsea1.jpg" alt="chelsea1" />
+        <h3>Maillot Chelsea</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Chelsea', 6000, 'https://mustafaashop.github.io/mustafaashop/chelsea1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/juve2.jpg" alt="juve2" />
+        <h3>Maillot Juventus</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Juventus', 6000, 'https://mustafaashop.github.io/mustafaashop/juve2.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/milan1.jpg" alt="milan1" />
+        <h3>Maillot Milan Ac</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Milan Ac', 6000, 'https://mustafaashop.github.io/mustafaashop/milan1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/miami1.jpg" alt="miami1" />
+        <h3>Maillot Inter Miami</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Inter Miami', 6000, 'https://mustafaashop.github.io/mustafaashop/miami1.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/marseille1.jpg" alt="marseille1" />
+        <h3>Maillot Marseille</h3>
+        <p>Prix : 6.000 FCFA</p>
+        <button onclick="addToCart('Maillot Marseille', 6000, 'https://mustafaashop.github.io/mustafaashop/marseille1.jpg')">Ajouter au panier</button>
+      </div>
     </div>
 
-    <!-- Atletico Madrid -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/atletico1.jpg" alt="Maillot Atletico Madrid">
-      <h3>Maillot Atletico Madrid</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Atletico Madrid',6000,'https://mustafaashop.github.io/mustafaashop/atletico1.jpg')">Ajouter au panier</button>
+    <div class="products" id="internationals" style="display: none;">
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/algerie.jpg" alt="algerie" />
+        <h3>Maillot Algérie</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Algérie', 7000, 'https://mustafaashop.github.io/mustafaashop/algerie.jpg')">Ajouter au panier</button>
+      </div>
+
+      <div class="product">
+         <img src="https://mustafaashop.github.io/mustafaashop/argentine2.jpg " alt="argentine2" />
+        <h3>Maillot Argentine Exterieur </h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Argentine Exterieur ', 7000, 'https://mustafaashop.github.io/mustafaashop/argentine2.jpg ')">Ajouter au panier</button>
+      </div>
+
+     <div class="product">
+         <img src="https://mustafaashop.github.io/mustafaashop/belgique.jpg" alt="belgique" />
+        <h3>Maillot Belgique</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Belgique ', 7000, 'https://mustafaashop.github.io/mustafaashop/belgique.jpg')">Ajouter au panier</button>
+      </div>
+
+      <div class="product">
+         <img src="https://mustafaashop.github.io/mustafaashop/afriquesud.jpg" alt="afriquedusud" />
+        <h3>Maillot Afrique du Sud</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Afrique du Sud ', 7000, 'https://mustafaashop.github.io/mustafaashop/afriquesud.jpg')">Ajouter au panier</button>
+      </div>
+
+      <div class="product">
+               <img src="https://mustafaashop.github.io/mustafaashop/japonexterieur.jpg" alt="japon" />
+              <h3>Maillot Japon</h3>
+              <p>Prix : 7.000 FCFA</p>
+              <button onclick="addToCart('Maillot Japon', 7000, 'https://mustafaashop.github.io/mustafaashop/japonexterieur.jpg')">Ajouter au panier</button>
+            </div>
+
+      <div class="product">
+         <img src="https://mustafaashop.github.io/mustafaashop/italieexterieur.jpg" alt="italieexterieur" />
+        <h3>Maillot Italie Exterieur</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Italie Exterieur ', 7000, 'https://mustafaashop.github.io/mustafaashop/italieexterieur.jpg')">Ajouter au panier</button>
+      </div>
+
+      <div class="product">
+         <img src="https://mustafaashop.github.io/mustafaashop/espagneexterieur.jpg" alt="espagneexterieur" />
+        <h3>Maillot Espagne Exterieur</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Espagne Exterieur ', 7000, 'https://mustafaashop.github.io/mustafaashop/espagneexterieur.jpg')">Ajouter au panier</button>
+      </div>
+      
+            
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/allemagne.jpg" alt="allemagne" />
+        <h3>Maillot Allemagne</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Allemagne', 7000, 'https://mustafaashop.github.io/mustafaashop/allemagne.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/argentine.jpg" alt="argentine" />
+        <h3>Maillot Argentine</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Argentine', 7000, 'https://mustafaashop.github.io/mustafaashop/argentine.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/colombie.jpg" alt="colombie" />
+        <h3>Maillot Colombie</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Colombie', 7000, 'https://mustafaashop.github.io/mustafaashop/colombie.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/ecosse.jpg" alt="ecosse" />
+        <h3>Maillot Écosse</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Écosse', 7000, 'https://mustafaashop.github.io/mustafaashop/ecosse.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/espagne.jpg" alt="espagne" />
+        <h3>Maillot Espagne</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Espagne', 7000, 'https://mustafaashop.github.io/mustafaashop/espagne.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/italie.jpg" alt="italie" />
+        <h3>Maillot Italie</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Italie', 7000, 'https://mustafaashop.github.io/mustafaashop/italie.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+        <img src="https://mustafaashop.github.io/mustafaashop/mexique.jpg" alt="mexique" />
+        <h3>Maillot Mexique</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Mexique', 7000, 'https://mustafaashop.github.io/mustafaashop/mexique.jpg')">Ajouter au panier</button>
+      </div>
+      <div class="product">
+       <img src="https://mustafaashop.github.io/mustafaashop/ukraine.jpg" alt="ukraine" />
+        <h3>Maillot Ukraine</h3>
+        <p>Prix : 7.000 FCFA</p>
+        <button onclick="addToCart('Maillot Ukraine', 7000,'https://mustafaashop.github.io/mustafaashop/ukraine.jpg')">Ajouter au panier</button>
+      </div>
     </div>
+ <div class="collection-card">
+            <div class="card-icon"></div>
+            <h3>Flocage disponible</h3>
+        
+          </div>
+  </main>
 
-    <!-- Bayern de Munich -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/bayern2.jpg" alt="Maillot Bayern">
-      <h3>Maillot Bayern de Munich</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Bayern de Munich',6000,'https://mustafaashop.github.io/mustafaashop/bayern2.jpg')">Ajouter au panier</button>
-    </div>
+  <footer>
+  </footer>
 
-    <!-- Dortmund -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/dortmund1.jpg" alt="Maillot Dortmund">
-      <h3>Maillot Dortmund</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Dortmund',6000,'https://mustafaashop.github.io/mustafaashop/dortmund1.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Manchester United -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/united1.jpg" alt="Maillot Manchester United">
-      <h3>Maillot Manchester United</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Manchester United',6000,'https://mustafaashop.github.io/mustafaashop/united1.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Manchester City -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/city1.jpeg" alt="Maillot Manchester City">
-      <h3>Maillot Manchester City</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Manchester City',6000,'https://mustafaashop.github.io/mustafaashop/city1.jpeg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Arsenal -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/arsenal1.jpg" alt="Maillot Arsenal">
-      <h3>Maillot Arsenal</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Arsenal',6000,'https://mustafaashop.github.io/mustafaashop/arsenal1.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Chelsea -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/chelsea1.jpg" alt="Maillot Chelsea">
-      <h3>Maillot Chelsea</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Chelsea',6000,'https://mustafaashop.github.io/mustafaashop/chelsea1.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Juventus -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/juve2.jpg" alt="Maillot Juventus">
-      <h3>Maillot Juventus</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Juventus',6000,'https://mustafaashop.github.io/mustafaashop/juve2.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Milan AC -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/milan1.jpg" alt="Maillot Milan AC">
-      <h3>Maillot Milan AC</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Milan AC',6000,'https://mustafaashop.github.io/mustafaashop/milan1.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Inter Miami -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/miami1.jpg" alt="Maillot Inter Miami">
-      <h3>Maillot Inter Miami</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Inter Miami',6000,'https://mustafaashop.github.io/mustafaashop/miami1.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Marseille -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/marseille1.jpg" alt="Maillot Marseille">
-      <h3>Maillot Marseille</h3>
-      <p>Prix : 6.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Marseille',6000,'https://mustafaashop.github.io/mustafaashop/marseille1.jpg')">Ajouter au panier</button>
-    </div>
-
-  </div>
-
-  <!-- SELECTIONS NATIONALES -->
-  <div class="products" id="internationals" style="display:none;">
-    <!-- Algérie -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/algerie.jpg" alt="Maillot Algérie">
-      <h3>Maillot Algérie</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Algérie',7000,'https://mustafaashop.github.io/mustafaashop/algerie.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Argentine -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/argentine.jpg" alt="Maillot Argentine">
-      <h3>Maillot Argentine</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Argentine',7000,'https://mustafaashop.github.io/mustafaashop/argentine.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Belgique -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/belgique.jpg" alt="Maillot Belgique">
-      <h3>Maillot Belgique</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Belgique',7000,'https://mustafaashop.github.io/mustafaashop/belgique.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Afrique du Sud -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/afriquesud.jpg" alt="Maillot Afrique du Sud">
-      <h3>Maillot Afrique du Sud</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Afrique du Sud',7000,'https://mustafaashop.github.io/mustafaashop/afriquesud.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Japon -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/japonexterieur.jpg" alt="Maillot Japon">
-      <h3>Maillot Japon</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Japon',7000,'https://mustafaashop.github.io/mustafaashop/japonexterieur.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Italie Exterieur -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/italieexterieur.jpg" alt="Maillot Italie Exterieur">
-      <h3>Maillot Italie Exterieur</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Italie Exterieur',7000,'https://mustafaashop.github.io/mustafaashop/italieexterieur.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Espagne Exterieur -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/espagneexterieur.jpg" alt="Maillot Espagne Exterieur">
-      <h3>Maillot Espagne Exterieur</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
-        <option value="X">X</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <button onclick="addToCart(this,'Maillot Espagne Exterieur',7000,'https://mustafaashop.github.io/mustafaashop/espagneexterieur.jpg')">Ajouter au panier</button>
-    </div>
-
-    <!-- Allemagne -->
-    <div class="product">
-      <img src="https://mustafaashop.github.io/mustafaashop/allemagne.jpg" alt="Maillot Allemagne">
-      <h3>Maillot Allemagne</h3>
-      <p>Prix : 7.000 FCFA</p>
-      <select class="size-select">
-        <option value="">Choisir la taille</option>
+  <script src="script.js"></script>
+</body>
+</html>
