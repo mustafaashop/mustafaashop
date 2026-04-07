@@ -21,7 +21,7 @@ function updateCartCount() {
 }
 
 // Filtrer catégories
-function filterCategory(event, category) {
+function filterCategory(category, event) {
   const clubsSection = document.getElementById('clubs');
   const internationalsSection = document.getElementById('internationals');
   const tabButtons = document.querySelectorAll('.tab-button');
@@ -33,11 +33,11 @@ function filterCategory(event, category) {
 
   if (category === 'clubs') {
     clubsSection.style.display = 'flex';
-  } else if (category === 'internationals') {
+  } else {
     internationalsSection.style.display = 'flex';
   }
 
-  event.target.classList.add('active');
+  if(event) event.target.classList.add('active');
 }
 
 // Ajouter produit avec taille
