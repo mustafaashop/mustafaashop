@@ -22,9 +22,13 @@ crossorigin="anonymous"></script>
 <h1>Mustafaa Shop</h1>
 
 <nav>
+
 <a href="index.html">Accueil</a>
+
 <a href="shop.html">Boutique</a>
+
 <a href="cart.html">Panier (<span id="cart-count">0</span>)</a>
+
 </nav>
 
 </header>
@@ -43,11 +47,32 @@ crossorigin="anonymous"></script>
 
 <ul id="cart-items"></ul>
 
+
+<!-- LIVRAISON -->
+
+<h3>🚚 Livraison</h3>
+
+<select id="delivery-zone" onchange="updateTotal()">
+
+<option value="0">Choisir la zone de livraison</option>
+
+<option value="3000">Dakar Ville (+3000 FCFA)</option>
+
+<option value="2000">Dakar Banlieue (+2000 FCFA)</option>
+
+</select>
+
+
+<!-- TOTAL -->
+
 <div class="cart-total">
 
 <p id="total">Total : 0 FCFA</p>
 
 </div>
+
+
+<!-- ACTIONS -->
 
 <div class="cart-actions">
 
@@ -68,6 +93,7 @@ Continuer les achats
 </div>
 
 </main>
+
 
 <footer>
 
