@@ -22,9 +22,10 @@
 <main>
   <h2>Boutique</h2>
   <div class="tabs-container">
- <button class="tab-button active" onclick="filterCategory('clubs', event)">⚽ Clubs</button>
-<button class="tab-button" onclick="filterCategory('internationals', event)">🌍 Sélections Nationales</button>
-
+ <div class="tabs-container">
+  <button class="tab-button active" onclick="filterCategory('clubs', this)">⚽ Clubs</button>
+  <button class="tab-button" onclick="filterCategory('internationals', this)">🌍 Sélections Nationales</button>
+</div>
   <!-- CLUBS -->
   <div class="products" id="clubs">
     <!-- Barça -->
