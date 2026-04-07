@@ -1,4 +1,3 @@
-
 let cart = [];
 
 // Charger panier
@@ -24,6 +23,7 @@ function updateCartCount() {
 
 // Filtrer catégories
 function filterCategory(category) {
+
   const clubsSection = document.getElementById('clubs');
   const internationalsSection = document.getElementById('internationals');
   const tabButtons = document.querySelectorAll('.tab-button');
@@ -42,51 +42,103 @@ function filterCategory(category) {
   event.target.classList.add('active');
 }
 
-// Ajouter produit
-function addToCart(product, price, image) {
+
+// Ajouter produit avec taille
+function addToCart(button, product, price, image) {
 
   loadCart();
 
-  const existing = cart.find(item => item.product === product && item.image === image);
+  const productCard = button.parentElement;
+  const size = productCard.querySelector(".size-select").value;
+
+  if(size === ""){
+    alert("Veuillez choisir une taille");
+    return;
+  }
+
+  const existing = cart.find(
+    item => item.product === product && item.size === size
+  );
 
   if (existing) {
+
     existing.quantity += 1;
+
   } else {
-    cart.push({ product, price, image, quantity: 1 });
+
+    cart.push({
+      product,
+      price,
+      image,
+      size,
+      quantity: 1
+    });
+
   }
 
   saveCart();
 
-  // feedback visuel
-  const btn = event.target;
-  btn.innerText = "✓ Ajouté";
-  btn.style.backgroundColor = "green";
+  button.innerText = "✓ Ajouté";
+  button.style.backgroundColor = "green";
+
 }
+
 
 // Supprimer produit
 function removeFromCart(index) {
+
   cart.splice(index, 1);
+
   saveCart();
+
   displayCart();
+
 }
+
 
 // Augmenter quantité
 function increaseQty(index){
+
   cart[index].quantity += 1;
+
   saveCart();
+
   displayCart();
+
 }
+
 
 // Diminuer quantité
 function decreaseQty(index){
+
   if(cart[index].quantity > 1){
+
     cart[index].quantity -= 1;
+
   } else {
+
     cart.splice(index,1);
+
   }
+
   saveCart();
+
   displayCart();
+
 }
+
+
+// Calcul livraison
+function getDeliveryCost(){
+
+  const zone = document.getElementById("delivery-zone");
+
+  if(!zone) return 0;
+
+  return parseInt(zone.value) || 0;
+
+}
+
 
 // Affichage panier
 function displayCart() {
@@ -104,9 +156,13 @@ function displayCart() {
   cartItems.innerHTML = '';
 
   if (cart.length === 0) {
+
     emptyDiv.style.display = 'block';
+
   } else {
+
     emptyDiv.style.display = 'none';
+
   }
 
   cart.forEach((item, index) => {
@@ -116,21 +172,39 @@ function displayCart() {
     const subtotal = item.price * item.quantity;
 
     li.innerHTML = `
+
       <img src="${item.image}" style="width:60px;margin-right:10px;">
+
       ${item.product}
+
       <br>
+
+      Taille : ${item.size}
+
+      <br>
+
       ${item.price} FCFA
+
       <br>
+
       Quantité :
+
       <button onclick="decreaseQty(${index})">-</button>
+
       ${item.quantity}
+
       <button onclick="increaseQty(${index})">+</button>
+
       <br>
+
       <strong>${subtotal} FCFA</strong>
+
     `;
 
     const removeBtn = document.createElement('button');
+
     removeBtn.textContent = 'Supprimer';
+
     removeBtn.onclick = () => removeFromCart(index);
 
     li.appendChild(removeBtn);
@@ -138,22 +212,47 @@ function displayCart() {
     cartItems.appendChild(li);
 
     total += subtotal;
+
   });
 
-  totalElement.textContent = `Total : ${total} FCFA`;
+  // Livraison
+
+  const delivery = getDeliveryCost();
+
+  const finalTotal = total + delivery;
+
+  totalElement.textContent = `Total : ${finalTotal} FCFA`;
 
   updateCartCount();
 
+
   const payButton = document.querySelector('.pay-button');
+
   if (payButton) {
+
     payButton.href =
-      `https://pay.wave.com/m/M_sn_fN7W0RiQbIXt/c/sn/?amount=${total}`;
+    `https://pay.wave.com/m/M_sn_fN7W0RiQbIXt/c/sn/?amount=${finalTotal}`;
+
   }
+
 }
+
+
+// Mise à jour total si livraison change
+function updateTotal(){
+
+  displayCart();
+
+}
+
 
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
+
   loadCart();
+
   updateCartCount();
+
   displayCart();
+
 });
